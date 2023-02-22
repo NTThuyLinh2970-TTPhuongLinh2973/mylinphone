@@ -28,7 +28,7 @@ import org.linphone.utils.LinphoneUtils
 class ContactSelectionData(private val searchResult: SearchResult) : ContactDataInterface {
     override val contact: MutableLiveData<Friend> = MutableLiveData<Friend>()
     override val displayName: MutableLiveData<String> = MutableLiveData<String>()
-    override val securityLevel: MutableLiveData<ChatRoomSecurityLevel> = MutableLiveData<ChatRoomSecurityLevel>()
+    override val securityLevel: MutableLiveData<ChatRoom.SecurityLevel> = MutableLiveData<ChatRoom.SecurityLevel>()
     override val presenceStatus: MutableLiveData<ConsolidatedPresence> = MutableLiveData<ConsolidatedPresence>()
     override val coroutineScope: CoroutineScope = coreContext.coroutineScope
 
@@ -55,7 +55,7 @@ class ContactSelectionData(private val searchResult: SearchResult) : ContactData
     }
 
     val hasLimeX3DHCapability: Boolean
-        get() = searchResult.hasCapability(FriendCapability.LimeX3Dh)
+        get() = searchResult.hasCapability(Friend.Capability.LimeX3Dh)
 
     init {
         isDisabled.value = false
