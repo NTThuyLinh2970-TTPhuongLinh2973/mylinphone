@@ -21,6 +21,7 @@ package org.linphone.compatibility
 
 import android.app.Activity
 import android.app.Notification
+import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
 import android.content.Context
@@ -452,6 +453,21 @@ class Compatibility {
                 return Api33Compatibility.hasTelecomManagerFeature(context)
             } else if (Version.sdkAboveOrEqual(Version.API26_O_80)) {
                 return Api26Compatibility.hasTelecomManagerFeature(context)
+            }
+            return false
+        }
+
+        fun hasFullScreenIntentPermission(context: Context): Boolean {
+            if (Version.sdkAboveOrEqual(Version.API34_ANDROID_14_UPSIDE_DOWN_CAKE)) {
+                return Api34Compatibility.hasFullScreenIntentPermission(context)
+            }
+            return true
+        }
+
+        fun requestFullScreenIntentPermission(context: Context): Boolean {
+            if (Version.sdkAboveOrEqual(Version.API34_ANDROID_14_UPSIDE_DOWN_CAKE)) {
+                Api34Compatibility.requestFullScreenIntentPermission(context)
+                return true
             }
             return false
         }
