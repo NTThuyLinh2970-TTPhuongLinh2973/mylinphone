@@ -33,21 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            layout_constraintGuide_percent="@{viewModel.leftAnchor, default=0.25}" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineMiddle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            layout_constraintGuide_percent="@{viewModel.middleAnchor, default=0.5}" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineBottom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            layout_constraintGuide_percent="@{viewModel.rightAnchor, default=0.75}" />
+            layout_constraintGuide_percent="@{viewModel.middleAnchor}" />
 
         <ImageView
             android:id="@+id/history"
@@ -77,32 +63,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <RelativeLayout
-            android:id="@+id/contacts"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="@drawable/footer_button"
-            android:onClick="@{contactsClickListener}"
-            app:layout_constraintTop_toTopOf="@id/guidelineTop"
-            app:layout_constraintBottom_toTopOf="@id/guidelineMiddle">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:contentDescription="@string/content_description_menu_contacts"
-                android:padding="15dp"
-                android:src="@drawable/footer_contacts" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
             android:id="@+id/dialer"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:background="@drawable/footer_button"
             android:onClick="@{dialerClickListener}"
-            app:layout_constraintTop_toTopOf="@id/guidelineMiddle"
-            app:layout_constraintBottom_toTopOf="@id/guidelineBottom">
+            app:layout_constraintTop_toBottomOf="@id/guidelineTop"
+            app:layout_constraintBottom_toBottomOf="parent">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -113,33 +80,6 @@
                 android:src="@drawable/footer_dialer" />
 
         </RelativeLayout>
-
-        <ImageView
-            android:id="@+id/chat"
-            android:onClick="@{chatClickListener}"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_centerInParent="true"
-            android:contentDescription="@string/content_description_menu_chat"
-            android:padding="15dp"
-            android:src="@drawable/footer_chat"
-            android:background="@drawable/footer_button"
-            app:layout_constraintTop_toTopOf="@id/guidelineBottom"
-            app:layout_constraintBottom_toBottomOf="parent" />
-
-        <TextView
-            android:id="@+id/chat_unread_count"
-            style="@style/unread_count_font"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
-            android:gravity="center"
-            android:translationY="@{viewModel.chatUnreadCountTranslateY}"
-            android:background="@{viewModel.unreadMessagesCount == 0 ? @drawable/hidden_unread_message_count_bg : @drawable/unread_message_count_bg}"
-            android:text="@{viewModel.unreadMessagesCount == 0 ? `` : String.valueOf(viewModel.unreadMessagesCount)}"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@id/guidelineBottom" />
 
         <View
             android:id="@+id/selector"
