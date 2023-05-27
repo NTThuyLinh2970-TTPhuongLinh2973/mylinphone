@@ -79,13 +79,6 @@
                     linphone:listener="@{viewModel.softwareEchoCancellerCalibrationListener}"/>
 
                 <include
-                    layout="@layout/settings_widget_basic"
-                    android:visibility="@{viewModel.showEchoTester ? View.VISIBLE : View.GONE, default=gone}"
-                    linphone:title="@{@string/audio_settings_echo_tester_title}"
-                    linphone:subtitle="@{viewModel.echoTesterStatus}"
-                    linphone:listener="@{viewModel.echoTesterListener}"/>
-
-                <include
                     layout="@layout/settings_widget_switch"
                     linphone:title="@{@string/audio_settings_adaptive_rate_control_title}"
                     linphone:listener="@{viewModel.adaptiveRateControlListener}"
@@ -112,46 +105,6 @@
                     linphone:title="@{@string/audio_settings_prefer_bluetooth_devices_title}"
                     linphone:listener="@{viewModel.preferBluetoothDevicesListener}"
                     linphone:checked="@={viewModel.preferBluetoothDevices}"/>
-
-                <include
-                    layout="@layout/settings_widget_list"
-                    linphone:title="@{@string/audio_settings_codec_bitrate_title}"
-                    linphone:listener="@{viewModel.codecBitrateListener}"
-                    linphone:selectedIndex="@{viewModel.codecBitrateIndex}"
-                    linphone:labels="@{viewModel.codecBitrateLabels}"/>
-
-                <include
-                    layout="@layout/settings_widget_text"
-                    linphone:title="@{@string/audio_settings_microphone_gain_title}"
-                    linphone:subtitle="@{@string/audio_settings_microphone_gain_summary}"
-                    linphone:listener="@{viewModel.microphoneGainListener}"
-                    linphone:defaultValue="@{viewModel.microphoneGain.toString()}"
-                    linphone:inputType="@{InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED |  InputType.TYPE_NUMBER_FLAG_DECIMAL}"/>
-
-                <include
-                    layout="@layout/settings_widget_text"
-                    linphone:title="@{@string/audio_settings_playback_gain_title}"
-                    linphone:subtitle="@{@string/audio_settings_playback_gain_summary}"
-                    linphone:listener="@{viewModel.playbackGainListener}"
-                    linphone:defaultValue="@{viewModel.playbackGain.toString()}"
-                    linphone:inputType="@{InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED | InputType.TYPE_NUMBER_FLAG_DECIMAL}"/>
-
-                <TextView
-                    style="@style/settings_category_font"
-                    android:id="@+id/pref_video_codecs_header"
-                    android:text="@string/audio_settings_codecs_title"
-                    android:paddingTop="15dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    linphone:entries="@{viewModel.audioCodecs}"/>
-
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>

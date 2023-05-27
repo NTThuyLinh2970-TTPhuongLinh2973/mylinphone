@@ -88,20 +88,6 @@
                     android:visibility="@{viewModel.canVibrate ? View.VISIBLE : View.GONE}"/>
 
                 <include
-                    layout="@layout/settings_widget_list"
-                    linphone:title="@{@string/call_settings_encryption_title}"
-                    linphone:listener="@{viewModel.encryptionListener}"
-                    linphone:selectedIndex="@{viewModel.encryptionIndex}"
-                    linphone:labels="@{viewModel.encryptionLabels}"/>
-
-                <include
-                    layout="@layout/settings_widget_switch"
-                    linphone:title="@{@string/call_settings_encryption_mandatory_title}"
-                    linphone:listener="@{viewModel.encryptionMandatoryListener}"
-                    linphone:checked="@={viewModel.encryptionMandatory}"
-                    linphone:enabled="@{viewModel.encryptionIndex != 0}" />
-
-                <include
                     layout="@layout/settings_widget_switch"
                     linphone:title="@{@string/call_settings_use_telecom_manager_title}"
                     linphone:subtitle="@{@string/call_settings_use_telecom_manager_summary}"
@@ -122,24 +108,6 @@
                     linphone:listener="@{viewModel.systemWideOverlayListener}"
                     linphone:checked="@={viewModel.systemWideOverlay}"
                     linphone:enabled="@{viewModel.overlay}"/>
-
-                <include
-                    layout="@layout/settings_widget_switch"
-                    linphone:title="@{@string/call_settings_sipinfo_dtmf_title}"
-                    linphone:listener="@{viewModel.sipInfoDtmfListener}"
-                    linphone:checked="@={viewModel.sipInfoDtmf}"/>
-
-                <include
-                    layout="@layout/settings_widget_switch"
-                    linphone:title="@{@string/call_settings_rfc2833_dtmf_title}"
-                    linphone:listener="@{viewModel.rfc2833DtmfListener}"
-                    linphone:checked="@={viewModel.rfc2833Dtmf}"/>
-
-                <include
-                    layout="@layout/settings_widget_switch"
-                    linphone:title="@{@string/call_settings_auto_start_recording_title}"
-                    linphone:listener="@{viewModel.autoStartCallRecordingListener}"
-                    linphone:checked="@={viewModel.autoStartCallRecording}"/>
 
                 <include
                     layout="@layout/settings_widget_switch"
@@ -188,13 +156,6 @@
 
                 <include
                     layout="@layout/settings_widget_switch"
-                    linphone:title="@{@string/call_settings_redirect_to_voice_mail_declined_calls_title}"
-                    linphone:listener="@{viewModel.redirectToVoiceMailIncomingDeclinedCallsListener}"
-                    linphone:checked="@={viewModel.redirectToVoiceMailIncomingDeclinedCalls}"
-                    linphone:enabled="@{viewModel.voiceMailUri.length() > 0}"/>
-
-                <include
-                    layout="@layout/settings_widget_switch"
                     linphone:title="@{@string/call_settings_accept_early_media_title}"
                     linphone:listener="@{viewModel.acceptEarlyMediaListener}"
                     linphone:checked="@={viewModel.acceptEarlyMedia}"/>
@@ -205,13 +166,6 @@
                     linphone:listener="@{viewModel.ringDuringEarlyMediaListener}"
                     linphone:checked="@={viewModel.ringDuringEarlyMedia}"
                     linphone:enabled="@{viewModel.acceptEarlyMedia}"/>
-
-                <include
-                    layout="@layout/settings_widget_switch"
-                    linphone:title="@{@string/call_settings_pause_calls_lost_audio_focus_title}"
-                    linphone:listener="@{viewModel.pauseCallsWhenAudioFocusIsLostListener}"
-                    linphone:checked="@={viewModel.pauseCallsWhenAudioFocusIsLost}"
-                    linphone:enabled="@{!viewModel.useTelecomManager}"/>
 
                 <include
                     layout="@layout/settings_widget_basic"

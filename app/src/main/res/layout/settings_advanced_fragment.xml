@@ -126,46 +126,12 @@
                     linphone:checked="@={viewModel.autoStart}"/>
 
                 <include
-                    layout="@layout/settings_widget_list"
-                    linphone:title="@{@string/advanced_settings_dark_mode_title}"
-                    linphone:listener="@{viewModel.darkModeListener}"
-                    linphone:selectedIndex="@{viewModel.darkModeIndex}"
-                    linphone:labels="@{viewModel.darkModeLabels}"/>
-
-                <include
-                    layout="@layout/settings_widget_switch"
-                    linphone:title="@{@string/advanced_settings_animations_title}"
-                    linphone:listener="@{viewModel.animationsListener}"
-                    linphone:checked="@={viewModel.animations}"/>
-
-                <include
                     layout="@layout/settings_widget_text"
                     linphone:title="@{@string/advanced_settings_device_name_title}"
                     linphone:subtitle="@{@string/advanced_settings_device_name_summary}"
                     linphone:listener="@{viewModel.deviceNameListener}"
                     linphone:defaultValue="@{viewModel.deviceName}"/>
 
-                <include
-                    layout="@layout/settings_widget_text"
-                    linphone:title="@{@string/advanced_settings_remote_provisioning_url_title}"
-                    linphone:listener="@{viewModel.remoteProvisioningUrlListener}"
-                    linphone:defaultValue="@{viewModel.remoteProvisioningUrl}"
-                    linphone:inputType="@{InputType.TYPE_TEXT_VARIATION_URI}"/>
-
-                <include
-                    layout="@layout/settings_widget_switch"
-                    linphone:title="@{@string/advanced_settings_vfs_title}"
-                    linphone:subtitle="@{@string/advanced_settings_vfs_summary}"
-                    linphone:listener="@{viewModel.vfsListener}"
-                    linphone:checked="@={viewModel.vfs}"
-                    linphone:enabled="@{!viewModel.vfs}"/>
-
-                <include
-                    layout="@layout/settings_widget_switch"
-                    linphone:title="@{@string/advanced_settings_disable_fragment_security_title}"
-                    linphone:subtitle="@{@string/advanced_settings_disable_fragment_security_summary}"
-                    linphone:listener="@{viewModel.disableSecureFragmentListener}"
-                    linphone:checked="@={viewModel.disableSecureFragment}"/>
 
                 <TextView
                     style="@style/settings_category_font"
