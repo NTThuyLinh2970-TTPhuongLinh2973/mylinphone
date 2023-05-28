@@ -20,7 +20,6 @@
 package org.linphone.activities.assistant.fragments
 
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.text.SpannableString
@@ -31,17 +30,13 @@ import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import java.util.UnknownFormatConversionException
 import java.util.regex.Pattern
-import org.linphone.LinphoneApplication.Companion.coreContext
 import org.linphone.LinphoneApplication.Companion.corePreferences
 import org.linphone.R
 import org.linphone.activities.*
 import org.linphone.activities.assistant.viewmodels.WelcomeViewModel
 import org.linphone.activities.navigateToAccountLogin
-import org.linphone.activities.navigateToEmailAccountCreation
-import org.linphone.activities.navigateToRemoteProvisioning
 import org.linphone.core.tools.Log
 import org.linphone.databinding.AssistantWelcomeFragmentBinding
-import org.linphone.utils.LinphoneUtils
 
 class WelcomeFragment : GenericFragment<AssistantWelcomeFragmentBinding>() {
     private lateinit var viewModel: WelcomeViewModel
@@ -56,41 +51,12 @@ class WelcomeFragment : GenericFragment<AssistantWelcomeFragmentBinding>() {
         viewModel = ViewModelProvider(this)[WelcomeViewModel::class.java]
         binding.viewModel = viewModel
 
-        binding.setCreateAccountClickListener {
-            if (LinphoneUtils.isPushNotificationAvailable()) {
-                Log.i("[Assistant] Core says push notifications are available")
-                val deviceHasTelephonyFeature = coreContext.context.packageManager.hasSystemFeature(
-                    PackageManager.FEATURE_TELEPHONY
-                )
-                if (!deviceHasTelephonyFeature) {
-                    Log.i(
-                        "[Assistant] Device doesn't have TELEPHONY feature, showing email based account creation"
-                    )
-                    navigateToEmailAccountCreation()
-                } else {
-                    Log.i(
-                        "[Assistant] Device has TELEPHONY feature, showing phone based account creation"
-                    )
-                    navigateToPhoneAccountCreation()
-                }
-            } else {
-                Log.w(
-                    "[Assistant] Failed to get push notification info, showing warning instead of phone based account creation"
-                )
-                navigateToNoPushWarning()
-            }
-        }
-
         binding.setAccountLoginClickListener {
             navigateToAccountLogin()
         }
 
         binding.setGenericAccountLoginClickListener {
             navigateToGenericLoginWarning()
-        }
-
-        binding.setRemoteProvisioningClickListener {
-            navigateToRemoteProvisioning()
         }
 
         viewModel.termsAndPrivacyAccepted.observe(

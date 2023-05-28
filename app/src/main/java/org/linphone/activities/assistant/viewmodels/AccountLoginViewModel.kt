@@ -118,7 +118,7 @@ class AccountLoginViewModel(accountCreator: AccountCreator) : AbstractPhoneViewM
         val deviceHasTelephonyFeature = coreContext.context.packageManager.hasSystemFeature(
             PackageManager.FEATURE_TELEPHONY
         )
-        loginWithUsernamePassword.value = !deviceHasTelephonyFeature || !pushAvailable
+        loginWithUsernamePassword.value = true
         forceLoginUsingUsernameAndPassword.value = !pushAvailable
 
         loginEnabled.value = false

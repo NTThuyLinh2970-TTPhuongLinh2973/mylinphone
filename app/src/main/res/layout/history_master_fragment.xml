@@ -81,32 +81,6 @@
 
                 </RelativeLayout>
 
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:visibility="@{viewModel.showConferencesFilter ? View.VISIBLE : View.INVISIBLE}">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="?attr/button_background_drawable"
-                        android:contentDescription="@string/content_description_show_missed_calls"
-                        android:enabled="@{viewModel.filter != CallLogsFilter.CONFERENCE}"
-                        android:gravity="center"
-                        android:onClick="@{() -> viewModel.showOnlyConferenceCallLogs()}"
-                        android:padding="8dp"
-                        android:src="@drawable/icon_video_conf_new" />
-
-                    <View
-                        android:visibility="@{viewModel.filter == CallLogsFilter.CONFERENCE ? View.VISIBLE : View.GONE}"
-                        android:layout_width="match_parent"
-                        android:layout_height="5dp"
-                        android:layout_alignParentBottom="true"
-                        android:background="?attr/accentColor" />
-
-                </RelativeLayout>
-
                 <View
                     android:layout_width="0dp"
                     android:layout_height="match_parent"

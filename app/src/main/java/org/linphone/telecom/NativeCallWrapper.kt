@@ -44,7 +44,7 @@ class NativeCallWrapper(var callId: String) : Connection() {
         audioModeIsVoip = true
         statusHints = StatusHints(
             "",
-            Icon.createWithResource(coreContext.context, R.drawable.linphone_logo_tinted),
+            Icon.createWithResource(coreContext.context, R.drawable.avt),
             Bundle()
         )
     }

@@ -178,7 +178,7 @@ class TelecomHelper private constructor(context: Context) {
             ?: throw Exception("[Telecom Helper] Identity address for phone account is null!")
         val account = PhoneAccount.builder(accountHandle, context.getString(R.string.app_name))
             .setAddress(address)
-            .setIcon(Icon.createWithResource(context, R.drawable.linphone_logo_tinted))
+            .setIcon(Icon.createWithResource(context, R.drawable.avt))
             .setCapabilities(PhoneAccount.CAPABILITY_SELF_MANAGED)
             .setHighlightColor(context.getColor(R.color.primary_color))
             .setShortDescription(context.getString(R.string.app_description))

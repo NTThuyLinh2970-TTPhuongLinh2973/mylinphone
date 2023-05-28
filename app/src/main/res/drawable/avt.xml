@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:gravity="center" android:width="60dp" android:height="60dp">
+        <shape android:shape="oval">
+            <solid android:color="#002A62"></solid>
+        </shape>
+    </item>
+    <item android:gravity="center" android:width="45dp" android:height="45dp" android:drawable="@drawable/round_dialer_sip_24" />
+</layer-list>
