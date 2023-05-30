@@ -46,29 +46,6 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.6" />
-
-            <ImageView
-                android:onClick="@{newContactClickListener}"
-                android:visibility="@{viewModel.contact != null || viewModel.readOnlyNativeAddressBook ? View.GONE : View.VISIBLE}"
-                android:contentDescription="@string/content_description_add_contact"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:background="?attr/button_background_drawable"
-                android:padding="15dp"
-                android:src="@drawable/contact_add" />
-
-            <ImageView
-                android:onClick="@{contactClickListener}"
-                android:visibility="@{viewModel.contact == null ? View.GONE : View.VISIBLE}"
-                android:contentDescription="@string/content_description_go_to_contact"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:background="?attr/button_background_drawable"
-                android:padding="15dp"
-                android:src="@drawable/contact" />
-
         </LinearLayout>
 
         <androidx.core.widget.NestedScrollView
@@ -141,42 +118,7 @@
                         android:background="@drawable/round_orange_button_background"
                         android:src="@drawable/call_start_default" />
 
-                    <ImageView
-                        android:layout_width="56dp"
-                        android:layout_height="60dp"
-                        android:layout_margin="10dp"
-                        android:background="@drawable/round_orange_button_background"
-                        android:contentDescription="@string/content_description_start_chat"
-                        android:onClick="@{() -> viewModel.startChat(false)}"
-                        android:src="@drawable/chat_start_default"
-                        android:visibility="@{viewModel.chatAllowed &amp;&amp; !viewModel.hidePlainChat ? View.VISIBLE : View.GONE}" />
 
-                    <RelativeLayout
-                        android:onClick="@{() -> viewModel.startChat(true)}"
-                        android:visibility="@{viewModel.chatAllowed &amp;&amp; viewModel.secureChatAllowed ? View.VISIBLE : View.GONE}"
-                        android:layout_width="70dp"
-                        android:layout_height="60dp"
-                        android:layout_margin="10dp">
-
-                        <ImageView
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:layout_alignParentLeft="true"
-                            android:layout_centerVertical="true"
-                            android:background="@drawable/round_orange_button_background"
-                            android:contentDescription="@string/content_description_start_encrypted_chat"
-                            android:src="@drawable/chat_start_default" />
-
-                        <ImageView
-                            android:layout_width="21dp"
-                            android:layout_height="21dp"
-                            android:layout_marginTop="4dp"
-                            android:layout_alignParentTop="true"
-                            android:layout_alignParentRight="true"
-                            android:contentDescription="@string/content_description_start_encrypted_chat"
-                            android:src="@drawable/security_toggle_icon_green" />
-
-                    </RelativeLayout>
 
                 </LinearLayout>
 

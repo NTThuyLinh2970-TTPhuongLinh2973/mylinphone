@@ -30,8 +30,7 @@
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@id/ui_layout"
             android:padding="30dp"
-            android:contentDescription="@null"
-            android:src="@drawable/dialer_background" />
+            android:contentDescription="@null"/>
 
         <org.linphone.mediastream.video.capture.CaptureTextureView
             android:id="@+id/video_preview_window"
